@@ -49,6 +49,13 @@ def create_directories(dir_names: list, base_path: str):
 
 
 def resize_image(image_path: str, image_resolution: float):
+	"""
+	Resizes the image provided as an argument depending upon the
+	`base_resolution` and the provided `image_resolution`.
+	:param image_path: Image to be resized.
+	:param image_resolution: resolution to which image should be resized.
+	:return:
+	"""
 	image = read_image(image_path)
 	current_height, current_width = image.shape[0:-1]
 	ratio = image_resolution / base_resolution
@@ -58,6 +65,13 @@ def resize_image(image_path: str, image_resolution: float):
 
 
 def save_resized_image(image, resolution: float, image_name: str):
+	"""
+	Saves image to the created directory of the particular resolution.
+	:param image:
+	:param resolution:
+	:param image_name:
+	:return:
+	"""
 	filename: str = join(join(base_directory, str(resolution) + 'x'),
 	                     image_name)
 	print(image_name)
