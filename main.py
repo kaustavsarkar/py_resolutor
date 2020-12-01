@@ -30,7 +30,7 @@ def read_base_folder(base_path: str) -> dict:
 	:param base_path: path from where image paths are to be identified.
 	:return: list of images paths to be processed.
 	"""
-	four_x_images: dict = { }
+	four_x_images: dict = {}
 	for file in listdir(four_x_file_path):
 		file_extension = os.path.splitext(file)[1]
 		if file_extension in image_extensions:
@@ -92,4 +92,5 @@ def process():
 			save_resized_image(resized_image, resolution, file_name)
 
 
-process()
+if __name__ == '__main__':
+	process()
