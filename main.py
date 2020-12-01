@@ -10,6 +10,7 @@ base_resolution: float = 4
 base_directory: str = "/home/kaustav/work/images"
 four_x_file_path: str = "/home/kaustav/work/images/4x"
 resolutions: List[float] = [3, 2, 1.5, 1]
+image_extensions = [".png", ".jpg"]
 
 
 def read_image(image_path: str):
@@ -31,7 +32,9 @@ def read_base_folder(base_path: str) -> dict:
 	"""
 	four_x_images: dict = { }
 	for file in listdir(four_x_file_path):
-		four_x_images[file] = join(base_path, file)
+		file_extension = os.path.splitext(file)[1]
+		if file_extension in image_extensions:
+			four_x_images[file] = join(base_path, file)
 	return four_x_images
 
 
