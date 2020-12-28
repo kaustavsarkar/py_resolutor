@@ -7,8 +7,8 @@ from typing import List
 import cv2 as cv
 
 base_resolution: float = 4
-base_directory: str = "/home/kaustav/work/images"
-four_x_file_path: str = "/home/kaustav/work/images/4x"
+base_directory: str = "/home/kaustav/work/adminssions/100marks/images"
+four_x_file_path: str = "/home/kaustav/work/adminssions/100marks/images/4x"
 resolutions: List[float] = [3, 2, 1.5, 1]
 image_extensions = [".png", ".jpg"]
 
@@ -19,7 +19,7 @@ def read_image(image_path: str):
 	:param image_path:
 	:return:
 	"""
-	return cv.imread(image_path)
+	return cv.imread(image_path, cv.IMREAD_UNCHANGED)
 
 
 def read_base_folder(base_path: str) -> dict:
